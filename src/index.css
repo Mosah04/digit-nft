@@ -15,6 +15,10 @@
   }
 }
 
+.here {
+  line-height: 1;
+}
+
 .vertical-ratio {
   aspect-ratio: 11 / 16;
 }
@@ -25,5 +29,65 @@
 .containerGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
-  gap: 24px;
+  gap: 20px;
+}
+
+.remove-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  border-radius: 0px;
+}
+
+.remove-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.remove-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 0px;
+}
+
+.remove-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+.leftRight {
+  animation: leftRight 1s infinite;
+}
+
+@keyframes leftRight {
+  0%,
+  100% {
+    transform: translateX(25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.nav-content {
+  position: relative;
+}
+
+.nav-content:hover::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  left: 0px;
+  bottom: 2px;
+  height: 2px;
+  border-top: 2px solid #12171f;
+  animation: grow 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes grow {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
